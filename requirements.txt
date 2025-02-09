@@ -1,3 +1,4 @@
 streamlit==1.41.1
 streamlit-authenticator==0.4.1
+st-gsheets-connection==0.1.0
 pandas==2.2.3
