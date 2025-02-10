@@ -35,6 +35,8 @@ except stauth.LoginError as e:
 if st.session_state["authentication_status"]:
 	authenticator.logout()
 
+	n_samples = 5
+
 	with open('text_intro.txt', 'r') as f:
 		text_intro = f.read()
 
@@ -89,7 +91,7 @@ if st.session_state["authentication_status"]:
 
 			df_data = conn_data.read()
 			st.session_state.num_examples = df_data.shape[0] - len(feedback_ids)
-			df_data = df_data[~df_data['idx'].isin(feedback_ids)].sample(3, random_state=42).reset_index().copy()
+			df_data = df_data[~df_data['idx'].isin(feedback_ids)].sample(n_samples, random_state=42).reset_index().copy()
 			# st.write(df_data)
 
 			for i, row in df_data.iterrows():

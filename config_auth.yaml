@@ -1,17 +1,17 @@
 credentials:
   usernames:
     ivanyukpetro:
-      email: ivanyukpetro@gmail.com
+      email: i@gmail.com
       name: ivanyukpetro
-      password: $2b$12$alhNGg/tRQhtzObWp9zFOeoTbHlZaGKM0FIt.4EcGHivWKq03H0wu
+      password: $2b$12$KxswNVR9TYyRW0z7YmObI.Pc8eHF5tY7idVc1tFOl7cQ0DjlxiMR.
     mariana.romanyshyn:
-      email: mariana.romanyshyn@grammarly.com
+      email: m@grammarly.com
       name: mariana.romanyshyn
-      password: $2b$12$/N754TLt8M4.MRrCLQMKcepTFgv/QqTJGruEFg.VIZjWJQEvAu1Pe
+      password: $2b$12$U6FwiVQ5o2Krkrzf3BkmTukpcxzbVK4g6VSanXyn/7hjprnKNLZ3q
     ro.kovalch:
-      email: ro.kovalch@gmail.com
+      email: r@gmail.com
       name: ro.kovalch
-      password: $2b$12$5qd23OpNkHzKVYbxuvt9yOs3LrziHYpCJ1bDRW9Mx9wD6QbCbz8h.
+      password: $2b$12$dqBHeOfKfFW8MfTcW4h7H..WcKGjZWLMEZLdEsN/2fb50OgroHWvm
 cookie:
   expiry_days: 30
   key: "ANNOTATION"
