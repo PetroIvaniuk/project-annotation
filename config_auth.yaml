@@ -12,6 +12,98 @@ credentials:
       email: r@gmail.com
       name: ro.kovalch
       password: $2b$12$dqBHeOfKfFW8MfTcW4h7H..WcKGjZWLMEZLdEsN/2fb50OgroHWvm
+    Maksimvodyanko:
+      email: M@gmail.com
+      name: Maksimvodyanko
+      password: $2b$12$MHT1RpvSj48ypZFnBJsNBOhZEUYHdA6IXhOBvbdGw5p/zsIujkgtG
+    annaosvita2003:
+      email: a@gmail.com
+      name: annaosvita2003
+      password: $2b$12$jKi34tAY2C/0263XR/qtKuMDCfjpIEmijpFZqvFXTugjDgszsQG4q
+    arsenij.lukashevskyj:
+      email: a@outlook.com
+      name: arsenij.lukashevskyj
+      password: $2b$12$c6mTInDxgZ0.3Vlsg8za1OW2oUPTI5bKev7VjKKJcVclJWAGOw07K
+    b.didenko:
+      email: b@gmail.com
+      name: b.didenko
+      password: $2b$12$FLe8KD4vVxKwE52XgLZsu.XNuKB5j9lVTIPYaWZkKG35M6DcuYANi
+    bodilowsky:
+      email: b@gmail.com
+      name: bodilowsky
+      password: $2b$12$WnTnuLz93bFj0fu6vPul3OyRjFbspug29DkNnNxZjPssBuYKNy/ie
+    bohdanbeletskyi:
+      email: b@gmail.com
+      name: bohdanbeletskyi
+      password: $2b$12$22SwFp0ifGtvhQjczf0pAuK5f5jSEZiyatw3ZUUpEUq4JIASwMyM.
+    danilatv2001:
+      email: d@gmail.com
+      name: danilatv2001
+      password: $2b$12$odk5Lw0EtiUXTzB65ExqgeHrRYsPdF.w.AuHZLT60yD23pHwY/P9q
+    ebezverhna13:
+      email: e@gmail.com
+      name: ebezverhna13
+      password: $2b$12$mI1ECF2Mk0.DtipjpY.2AudBwm8cZT/QzcpUbUTkfgeYCmEOhLiY.
+    kant2002:
+      email: k@gmail.com
+      name: kant2002
+      password: $2b$12$llHoLzukCUDiuS0YNVwG3uVR1gAOxd6dhkHP90ZugRj2fYaNr3ccS
+    ll4236678:
+      email: l@gmail.com
+      name: ll4236678
+      password: $2b$12$YoIFzn1fHIqRJzs/2DyGdeAoe3wWZ7KPFgBa8Mm9tBkx.2g.ZCTYG
+    lmxlbm:
+      email: l@gmail.com
+      name: lmxlbm
+      password: $2b$12$lVpMJD9IpSb4xtxXa/wMS.JefIZlA0AbNEAB5tlitRijxsvcvX.VO
+    maria.morozova7474:
+      email: m@gmail.com
+      name: maria.morozova7474
+      password: $2b$12$oEqIEG0YH3rglAziKEgsPuTma1dR0vEAulE5IMGF4GlnlnkyieCuq
+    marianamartyniv:
+      email: m@gmail.com
+      name: marianamartyniv
+      password: $2b$12$JUP9Q/OnQWOdWA3MBIy69O29Rqg63wvmUajgN9jdo27Iwo5QrCSda
+    myhajloolyzko2003:
+      email: m@gmail.com
+      name: myhajloolyzko2003
+      password: $2b$12$w6u12pQ7dEveINapqMDbs.dgta7iSsC2hMYgBHEEhVOW6Nk64.Aay
+    n.vysokinskyi+annotations-uk:
+      email: n@gmail.com
+      name: n.vysokinskyi+annotations-uk
+      password: $2b$12$zpEV5g3aOhCkLB.Yks19Te3mXDDGBUk8SyMIEMDK22O8qdKuxmDVq
+    nataliia.sheremett:
+      email: n@gmail.com
+      name: nataliia.sheremett
+      password: $2b$12$hqELOrFxf/aid.O9wJsCYuei.yzCtOJkdVHMH/c.lKk6tOXtOxAk6
+    petrov.jurij.b24nf:
+      email: p@kmf.org.ua
+      name: petrov.jurij.b24nf
+      password: $2b$12$Ajsmxxfjhfmre8FBrvMwQOADXQBA4uiNWY3zhq8PAW1hv7fxVY/Pq
+    romaniukolena4545:
+      email: r@gmail.com
+      name: romaniukolena4545
+      password: $2b$12$FNOtHgMrSUY5xxjgDN7f1OxrS6fhzqEaPNAnfSwHlLzOo3RiSd/8a
+    ruda.andrii:
+      email: r@gmail.com
+      name: ruda.andrii
+      password: $2b$12$mNMax6g9ehYHSFcIqhvKf.01yfF/P7APN50gM5JWfNL6u6PdIfB0y
+    sophionysko:
+      email: s@gmail.com
+      name: sophionysko
+      password: $2b$12$R05e1MOjmku0HhX4ORl9Vu7uEI3mKdW7Hr5lgAFvO8VohIUFJ7gZS
+    tamila.krashtan:
+      email: t@gmail.com
+      name: tamila.krashtan
+      password: $2b$12$ICpBqL0.L3GuC9ur1mys8O96laDURi4EPxVB8XNIaVarSqEWsBqUy
+    veronicamorrr:
+      email: v@gmail.com
+      name: veronicamorrr
+      password: $2b$12$04nVgY.W9.f4GsniZX7uou6xcH4kvU5CudXiCVfvyPYBzFl0mP9HG
+    zhannavoloshko:
+      email: z@gmail.com
+      name: zhannavoloshko
+      password: $2b$12$XnVw20FlTWtAWjEDMhDMPeXOr8CEzdq36F14iROhn6Uk.1eHZtM86
 cookie:
   expiry_days: 30
   key: "ANNOTATION"
