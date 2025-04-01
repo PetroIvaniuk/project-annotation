@@ -104,6 +104,34 @@ credentials:
       email: z@gmail.com
       name: zhannavoloshko
       password: $2b$12$sZ7vv8esxh2lNy2FOBDog.z2f38ZEsbJkdPFbVSST9VOo8vKtkJWi
+    corpus.textiv:
+      email: c@gmail.com
+      name: corpus.textiv
+      password: $2b$12$MB86SA0GlMtjCsxKvfh88u21h1/vFWBV28ZA7EZnCHXTnVNnzAvem
+    kameliacvom:
+      email: k@gmail.com
+      name: kameliacvom
+      password: $2b$12$QV62YcTel62shFFtHxtNWePH5h8sHRIWILGuJtujZl0mISPAQ67ua
+    kateryna.astafyeva:
+      email: k@sgt.khpi.edu.ua
+      name: kateryna.astafyeva
+      password: $2b$12$EE5.HWPnfiiWcX.V2n0GDuRUgK05vYAbVWCeu9Wm5mI.l8Zl1gRMe
+    lddarya5132:
+      email: l@gmail.com
+      name: lddarya5132
+      password: $2b$12$A6h3hNfTO6cp8xjrt1UjDejofBBAZrPFRa6vdFZ3OWn1ikagETFdK
+    luzhnayakausha:
+      email: l@gmail.com
+      name: luzhnayakausha
+      password: $2b$12$5c4i3jWEpvEt0AP1VJ2bvebKZQYZHxFIzFHUE2pdEfoWVuy2Pnis6
+    maryna.acinonyx:
+      email: m@gmail.com
+      name: maryna.acinonyx
+      password: $2b$12$q6r9WjvjDlIebLF1UoZJa.qlr7.rY/bOUjdZEFBff0qygxRk8q0UO
+    myron.prokopenko:
+      email: m@sgt.khpi.edu.ua
+      name: myron.prokopenko
+      password: $2b$12$YXrgnGsdlKAA3hcMTREAguUFbDVh4ucwfITuPUIWP86bglfW1iAyO
 cookie:
   expiry_days: 30
   key: "ANNOTATION"
