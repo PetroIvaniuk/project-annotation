@@ -38,47 +38,47 @@ if st.session_state["authentication_status"]:
 
 	tab1, tab2 = st.tabs(["Annotation", "Leaderboard"])
 
+	with open('text_intro.txt', 'r') as f:
+		text_intro = f.read()
+
+	def on_click_a():
+		results_list = []
+		for k, v in st.session_state.items():
+			if 'feedback' in k:
+				feedback_idx = k.split('_')[-1]
+				item_feedback = {
+					'idx': feedback_idx,
+					'feedback': v,
+					'is_shit': st.session_state[f'checkbox_{feedback_idx}'],
+					'author': st.session_state['name']
+				}
+				results_list.append(item_feedback)
+		st.session_state.df_results = pd.DataFrame(results_list)
+		st.session_state.df_results['time'] = datetime.datetime.now()
+
+		if st.session_state.df_results[st.session_state.df_results['feedback'].isna()].shape[0]==0:
+			# clear cache before write data to spreadsheet
+			st.cache_data.clear()
+			# open already annotated data
+			conn_data_write = st.connection('gsheets_out', type=GSheetsConnection)
+			df_data_write = conn_data_write.read()
+			# connect opened data with annotated data during one session
+			df_data_write_upd = pd.concat([df_data_write, st.session_state.df_results], axis=0)
+			# update annotated data
+			conn_data_write.update(
+				data=df_data_write_upd,
+			)
+			# change button status
+			st.cache_data.clear()
+			st.session_state.button_1_clicked = True
+
+	def on_click_b():
+		st.session_state.button_1_clicked = False
+
+	if 'button_1_clicked' not in st.session_state:
+		st.session_state.button_1_clicked = False
+
 	with tab1:
-		with open('text_intro.txt', 'r') as f:
-			text_intro = f.read()
-
-		def on_click_a():
-			results_list = []
-			for k, v in st.session_state.items():
-				if 'feedback' in k:
-					feedback_idx = k.split('_')[-1]
-					item_feedback = {
-						'idx': feedback_idx,
-						'feedback': v,
-						'is_shit': st.session_state[f'checkbox_{feedback_idx}'],
-						'author': st.session_state['name']
-					}
-					results_list.append(item_feedback)
-			st.session_state.df_results = pd.DataFrame(results_list)
-			st.session_state.df_results['time'] = datetime.datetime.now()
-
-			if st.session_state.df_results[st.session_state.df_results['feedback'].isna()].shape[0]==0:
-				# clear cache before write data to spreadsheet
-				st.cache_data.clear()
-				# open already annotated data
-				conn_data_write = st.connection('gsheets_out', type=GSheetsConnection)
-				df_data_write = conn_data_write.read()
-				# connect opened data with annotated data during one session
-				df_data_write_upd = pd.concat([df_data_write, st.session_state.df_results], axis=0)
-				# update annotated data
-				conn_data_write.update(
-					data=df_data_write_upd,
-				)
-				# change button status
-				st.cache_data.clear()
-				st.session_state.button_1_clicked = True
-
-		def on_click_b():
-			st.session_state.button_1_clicked = False
-
-		if 'button_1_clicked' not in st.session_state:
-			st.session_state.button_1_clicked = False
-
 		_, col_01, _ = st.columns((0.5, 2, 0.5))
 		with col_01:
 			with st.container(border=True):
@@ -130,7 +130,7 @@ if st.session_state["authentication_status"]:
 				st.info(f"Дякуємо за вашу допомогу та внесок y проєкт! Якщо маєте гарний настрій, проанотуйте ще\
 				10 прикладів, будь ласка! Кількість прикладів до успішного завершення проєкту: {st.session_state.num_examples}.")
 				st.button("Продовжити", key='but_b', on_click=on_click_b)
-
+g
 	with tab2:
 		df_feedback['point'] = df_feedback['feedback']+1
 		df_leader = df_feedback.groupby(['author']).agg(
