@@ -10,7 +10,7 @@ from utils import generate_original_corrected_texts
 
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="🇺🇦Gramma", layout="wide")
+st.set_page_config(page_title="🇺🇦Grammaticks", layout="wide")
 
 # Load the configuration settings from the config_auth.yaml file
 with open('config_auth.yaml') as f:
@@ -130,7 +130,7 @@ if st.session_state["authentication_status"]:
 				st.info(f"Дякуємо за вашу допомогу та внесок y проєкт! Якщо маєте гарний настрій, проанотуйте ще\
 				10 прикладів, будь ласка! Кількість прикладів до успішного завершення проєкту: {st.session_state.num_examples}.")
 				st.button("Продовжити", key='but_b', on_click=on_click_b)
-g
+
 	with tab2:
 		df_feedback['point'] = df_feedback['feedback']+1
 		df_leader = df_feedback.groupby(['author']).agg(
