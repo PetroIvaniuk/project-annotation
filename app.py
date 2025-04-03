@@ -89,8 +89,8 @@ if st.session_state["authentication_status"]:
 				conn_data = st.connection("gsheets_in", type=GSheetsConnection)
 				conn_feedback = st.connection("gsheets_out", type=GSheetsConnection)
 
-				df_feedback = conn_feedback.read()
-				feedback_ids = df_feedback['idx'].unique().tolist()
+				st.session_state.df_annotation = conn_feedback.read()
+				feedback_ids = st.session_state.df_annotation['idx'].unique().tolist()
 
 				df_data = conn_data.read()
 				st.session_state.num_examples = df_data.shape[0] - len(feedback_ids)
@@ -132,8 +132,9 @@ if st.session_state["authentication_status"]:
 				st.button("Продовжити", key='but_b', on_click=on_click_b)
 
 	with tab2:
-		df_feedback['point'] = df_feedback['feedback']+1
-		df_leader = df_feedback.groupby(['author']).agg(
+		df_annotation_all = st.session_state.df_annotation.copy()
+		df_annotation_all['point'] = df_annotation_all['feedback']+1
+		df_leader = df_annotation_all.groupby(['author']).agg(
 			avg_point=('point', 'mean'),
 			number=('point', 'count')
 		).reset_index()
