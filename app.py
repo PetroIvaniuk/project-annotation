@@ -86,45 +86,55 @@ if st.session_state["authentication_status"]:
 				# st.write(st.session_state)
 
 			if not st.session_state.button_1_clicked:
+				# Read input data (ready for annotation)
 				conn_data = st.connection("gsheets_in", type=GSheetsConnection)
-				conn_feedback = st.connection("gsheets_out", type=GSheetsConnection)
-
-				st.session_state.df_annotation = conn_feedback.read()
-				feedback_ids = st.session_state.df_annotation['idx'].unique().tolist()
-
 				df_data = conn_data.read()
+
+				# Read input data (already annotated)
+				conn_feedback = st.connection("gsheets_out", type=GSheetsConnection)
+				st.session_state.df_annotation = conn_feedback.read()
+
+				# Select ids for already annotated examples
+				feedback_ids = st.session_state.df_annotation[
+					st.session_state.df_annotation['author']==st.session_state["name"]
+				]['idx'].unique().tolist()
 				st.session_state.num_examples = df_data.shape[0] - len(feedback_ids)
-				df = df_data[~df_data['idx'].isin(feedback_ids)].sample(
-					n_samples, random_state=st.session_state.num_examples
-				).reset_index().copy()
 
-				st.write('')
-				st.write('')
-				for i, row in df.iterrows():
-					with st.container(border=True):
-						original, corrected = generate_original_corrected_texts(row['text'], row['correction'])
-						st.write(original)
-						st.divider()
-						st.write(corrected)
+				if st.session_state.num_examples!=0:
+					df = df_data[~df_data['idx'].isin(feedback_ids)].sample(
+						n_samples, random_state=st.session_state.num_examples
+					).reset_index().copy()
 
-					# add feedback faces
-					sentiment_mapping = ["one", "two", "three", "four", "five"]
-					selected = st.feedback("faces", key=f'feedback_{int(row["idx"])}', disabled=False)
-
-					# add quality text checkbox
-					selected_checkbox = st.checkbox(
-						"Складно оцінити якість виправлення.",
-						key=f'checkbox_{int(row["idx"])}'
-					)
 					st.write('')
+					st.write('')
+					for i, row in df.iterrows():
+						with st.container(border=True):
+							original, corrected = generate_original_corrected_texts(row['text'], row['correction'])
+							st.write(original)
+							st.divider()
+							st.write(corrected)
 
-					if selected is not None:
-						st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+						# add feedback faces
+						sentiment_mapping = ["one", "two", "three", "four", "five"]
+						selected = st.feedback("faces", key=f'feedback_{int(row["idx"])}', disabled=False)
 
-				if st.button("Надіслати результати", key='but_a', on_click=on_click_a):
-					num_unlabeled = st.session_state.df_results[st.session_state.df_results['feedback'].isna()].shape[0]
-					if num_unlabeled!=0:
-						st.warning(f"You have missed {num_unlabeled} example(s). Please annotate!")
+						# add text quality checkbox
+						selected_checkbox = st.checkbox(
+							"Складно оцінити якість виправлення.",
+							key=f'checkbox_{int(row["idx"])}'
+						)
+						st.write('')
+
+						if selected is not None:
+							st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+
+
+					if st.button("Надіслати результати", key='but_a', on_click=on_click_a):
+						num_unlabeled = st.session_state.df_results[st.session_state.df_results['feedback'].isna()].shape[0]
+						if num_unlabeled!=0:
+							st.warning(f"You have missed {num_unlabeled} example(s). Please annotate!")
+				else:
+					st.success('Вітаємо! Ви проанотували всі дані!', icon="✅")
 
 			if st.session_state.button_1_clicked:
 				st.info(f"Дякуємо за вашу допомогу та внесок y проєкт! Якщо маєте гарний настрій, проанотуйте ще\
@@ -143,8 +153,8 @@ if st.session_state["authentication_status"]:
 
 		_, col2, _ = st.columns((2, 2, 2))
 		with col2:
-			st.markdown('## Leaderboard - Top 5')
-			st.dataframe(df_leader.sort_values('rank').head(5), use_container_width=True, hide_index=True)
+			st.markdown('## Leaderboard - Top 10')
+			st.dataframe(df_leader.sort_values('rank').head(10), use_container_width=True, hide_index=True)
 
 elif st.session_state["authentication_status"] is None:
 	st.warning('Please enter your username and password')
